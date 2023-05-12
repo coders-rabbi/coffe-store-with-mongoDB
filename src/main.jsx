@@ -13,7 +13,8 @@ import UpdateCoffe from './components/UpdateCoffee/UpdateCoffe.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <App></App>,
+    loader: () => fetch('http://localhost:5000/coffee')
   },
   {
     path: "/addCoffee",
