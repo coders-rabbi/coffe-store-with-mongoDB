@@ -6,18 +6,19 @@ import { useLoaderData } from 'react-router-dom'
 import CoffeeCard from './components/CoffeeCard/CoffeeCard'
 
 function App() {
-  const coffees = useLoaderData();
-  console.log(coffees);
-  
+  const LoadedCoffees = useLoaderData();
+  const [coffees, setCoffees] = useState(LoadedCoffees)
 
   return (
     <>
-      <h1>total Coffee: {coffees.length}</h1>
+      <p>Total Coffee: {coffees.length}</p>
       <div className='md:grid grid-cols-2 gap-8'>
         {
           coffees.map(coffee => <CoffeeCard
             key={coffee._id}
             coffee={coffee}
+            coffees={coffees}
+            setCoffees={setCoffees}
           ></CoffeeCard>)
         }
       </div>
